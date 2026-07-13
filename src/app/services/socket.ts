@@ -10,7 +10,7 @@ export class Socket {
 
   constructor() {
 
-    this.socket = io('http://localhost:3000');
+    this.socket = io('https://signal-server-production-ef9e.up.railway.app');
 
   }
 
