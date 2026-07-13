@@ -1,0 +1,260 @@
+<div class="session-container">
+
+    <h1>🃏 Pointing Poker</h1>
+
+    <p>Estimate stories together in real time.</p>
+
+    <!-- Player Name -->
+
+    <div class="player-name">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            placeholder="Enter your name"
+            [(ngModel)]="hostName">
+
+    </div>
+<div class="observer-option">
+
+    <label>
+
+        <input
+            type="checkbox"
+            [(ngModel)]="isObserver">
+
+        ☕ Join as Observer
+
+    </label>
+
+</div>
+    <!-- Start / Join Buttons -->
+
+    <!-- <div class="buttons"
+                *ngIf="!isJoinLink">
+
+        <button
+            class="start"
+            (click)="startSession()">
+
+            🚀 Start Session
+
+        </button>
+
+        <button
+            class="join"
+            (click)="showJoin = !showJoin">
+
+            🤝 Join Session
+
+        </button>
+
+    </div> -->
+
+    <div
+    class="buttons"
+    *ngIf="!isJoinLink">
+
+    <button
+        class="start"
+        (click)="startSession()">
+
+        🚀 Start Session
+
+    </button>
+
+    <button
+        class="join"
+        (click)="showJoin = !showJoin">
+
+        🤝 Join Session
+
+    </button>
+   
+
+</div>
+
+    <!-- Join Existing Room -->
+
+    <!-- <div
+        *ngIf="showJoin"
+        class="join-box">
+
+        <label>Room ID</label>
+
+        <input
+            type="text"
+            [(ngModel)]="sessionId"
+            placeholder="Enter Room ID">
+
+        <button
+            class="join-btn"
+            (click)="joinSession()">
+
+            Join Room
+
+        </button>
+
+    </div> -->
+
+    <!-- Join Existing Room -->
+
+<div
+    *ngIf="showJoin || isJoinLink"
+    class="join-box">
+
+    <label>Room ID</label>
+
+    <input
+        type="text"
+        [(ngModel)]="sessionId"
+        [readonly]="isJoinLink"
+        placeholder="Enter Room ID">
+
+    <button
+        class="join-btn"
+        (click)="joinSession()">
+
+        🚪 Join Room
+
+    </button>
+
+</div>
+
+    <!-- Room Created -->
+
+    <div
+        *ngIf="roomCreated"
+        class="invite">
+
+        <h3>🎉 Room Created Successfully!</h3>
+
+        <p>
+
+            <strong>Room ID:</strong>
+
+            {{ sessionId }}
+
+        </p>
+
+        <label>Invite Link</label>
+
+        <input
+            type="text"
+            [value]="inviteLink"
+            readonly>
+
+        <div class="invite-buttons">
+
+            <button
+                class="copy"
+                (click)="copyInvite()">
+
+                📋 Copy Invite Link
+
+            </button>
+
+        </div>
+
+    </div>
+<div
+    *ngIf="players.length > 0"
+    class="vote-progress">
+
+    <div class="progress-header">
+
+        <span>Voting Progress</span>
+
+        <span>{{ votedCount }} / {{ totalPlayers }} voted</span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            [style.width.%]="voteProgress">
+
+        </div>
+
+    </div>
+
+</div>
+    <!-- Connected Players -->
+
+  <app-player-list
+    *ngIf="players.length > 0"
+    [players]="players"
+    [revealed]="revealed">
+</app-player-list>
+    
+    <app-poker-cards
+    *ngIf="players.length > 0"
+    (voteSelected)="vote($event)">
+    </app-poker-cards>
+<!-- Observer Message -->
+
+<div
+    *ngIf="players.length > 0 && isObserver"
+    class="observer-mode">
+
+    <h3>☕ Observer Mode</h3>
+
+    <p>
+        You joined this room as an observer.
+    </p>
+
+    <p>
+        You can watch the voting, but you cannot cast a vote.
+    </p>
+
+</div>
+    <app-toolbar
+        *ngIf="players.length > 0"
+
+    (reveal)="revealVotes()"
+
+    (newRound)="newRound()"
+    (leave)="leaveRoom()">
+
+</app-toolbar>
+
+<!-- <div
+    *ngIf="revealed && average !== null"
+    class="average">
+
+    <h2>📊 Average Estimate</h2>
+
+    <h1>{{ average }}</h1>
+
+</div> -->
+
+<div *ngIf="revealed" class="results">
+
+    <h2>Voting Results</h2>
+
+    <div *ngFor="let result of voteCounts">
+
+        {{ result.vote }} → {{ result.count }} vote(s)
+
+    </div>
+
+    <hr>
+
+    <div *ngIf="!isTie">
+
+        🏆 Recommended Estimate:
+        <strong>{{ majorityVote }}</strong>
+
+    </div>
+
+    <div *ngIf="isTie">
+
+        ⚠️ Tie detected. Please discuss and vote again.
+
+    </div>
+
+</div>
+
+</div>

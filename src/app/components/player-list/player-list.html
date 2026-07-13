@@ -1,0 +1,53 @@
+<h2>👥 Connected Players</h2>
+
+<div class="players">
+
+  <div
+    class="player"
+    *ngFor="let player of players">
+
+    <div class="player-info">
+
+      <span *ngIf="player.isHost">
+    👑
+</span>
+
+<span *ngIf="!player.isHost && !player.isObserver">
+    👤
+</span>
+
+<span *ngIf="player.isObserver">
+    ☕
+</span>
+
+      {{ player.name }}
+
+    </div>
+
+   <div class="status">
+
+<ng-container *ngIf="!revealed">
+
+    <span *ngIf="player.isObserver">
+        ☕ Observer
+    </span>
+
+    <span *ngIf="!player.isObserver">
+
+        {{ player.vote !== null ? '✔️ Voted' : 'Waiting...' }}
+
+    </span>
+
+</ng-container>
+
+  <ng-container *ngIf="revealed">
+
+     {{ player.vote ?? '-' }}
+
+  </ng-container>
+
+</div>
+
+  </div>
+
+</div>

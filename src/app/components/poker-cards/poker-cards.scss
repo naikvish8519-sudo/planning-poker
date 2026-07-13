@@ -1,0 +1,41 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;          // Space between cards
+  justify-content: center; // Optional: center the cards
+  margin-top: 20px;
+}
+
+button {
+  width: 60px;
+  height: 80px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: #1d4ed8;
+  }
+
+  &.selected {
+    background: #16a34a;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
+  }
+}
+
+.selection {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+}
