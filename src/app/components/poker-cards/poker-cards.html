@@ -1,22 +1,26 @@
-<h2>Select Estimate</h2>
+<h2 class="title">Select Estimate</h2>
 
 <div class="cards">
 
-  <button
-    *ngFor="let card of cards"
-    (click)="selectCard(card)"
-    [class.selected]="selectedCard === card">
+    <div
+        *ngFor="let card of cards"
+        class="poker-card"
+        [class.selected]="selectedCard === card"
+        (click)="selectCard(card)">
 
-    {{ card }}
+        <span class="card-number">
+            {{ card }}
+        </span>
 
-  </button>
+    </div>
 
 </div>
 
+<div
+    *ngIf="selectedCard !== null"
+    class="selection">
 
-<div *ngIf="selectedCard !== null" class="selection">
-
-  Selected:
-  <strong>{{ selectedCard }}</strong>
+    ✅ Your vote:
+    <strong>{{ selectedCard }}</strong>
 
 </div>

@@ -1,4 +1,7 @@
-<div class="session-container">
+<div class="dashboard">
+
+    <div class="left-panel">
+
 
     <h1>🃏 Pointing Poker</h1>
 
@@ -158,7 +161,14 @@
         </div>
 
     </div>
-<div
+
+
+</div>
+
+    <!-- Connected Players -->
+<div class="center-panel">
+
+    <div
     *ngIf="players.length > 0"
     class="vote-progress">
 
@@ -181,35 +191,6 @@
     </div>
 
 </div>
-    <!-- Connected Players -->
-
-  <app-player-list
-    *ngIf="players.length > 0"
-    [players]="players"
-    [revealed]="revealed">
-</app-player-list>
-    
-    <app-poker-cards
-    *ngIf="players.length > 0"
-    (voteSelected)="vote($event)">
-    </app-poker-cards>
-<!-- Observer Message -->
-
-<div
-    *ngIf="players.length > 0 && isObserver"
-    class="observer-mode">
-
-    <h3>☕ Observer Mode</h3>
-
-    <p>
-        You joined this room as an observer.
-    </p>
-
-    <p>
-        You can watch the voting, but you cannot cast a vote.
-    </p>
-
-</div>
     <app-toolbar
         *ngIf="players.length > 0"
 
@@ -219,18 +200,17 @@
     (leave)="leaveRoom()">
 
 </app-toolbar>
+  <app-player-list
+    *ngIf="players.length > 0"
+    [players]="players"
+    [revealed]="revealed">
+</app-player-list>
 
-<!-- <div
-    *ngIf="revealed && average !== null"
-    class="average">
+</div>   
 
-    <h2>📊 Average Estimate</h2>
+<div class="right-panel">
 
-    <h1>{{ average }}</h1>
-
-</div> -->
-
-<div *ngIf="revealed" class="results">
+    <div *ngIf="revealed" class="results">
 
     <h2>Voting Results</h2>
 
@@ -257,4 +237,33 @@
 
 </div>
 
+    <app-poker-cards
+    *ngIf="players.length > 0"
+    (voteSelected)="vote($event)">
+    </app-poker-cards>
+<!-- Observer Message -->
+
+<div
+    *ngIf="players.length > 0 && isObserver"
+    class="observer-mode">
+
+    <h3>☕ Observer Mode</h3>
+
+     <p>View only.</p>
+
+</div>
+
+
+<!-- <div
+    *ngIf="revealed && average !== null"
+    class="average">
+
+    <h2>📊 Average Estimate</h2>
+
+    <h1>{{ average }}</h1>
+
+</div> -->
+
+
+</div>
 </div>

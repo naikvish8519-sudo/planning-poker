@@ -1,51 +1,147 @@
-.toolbar{
+// .toolbar{
 
-    margin-top:30px;
+//     margin-top:30px;
 
-    display:flex;
+//     display:flex;
 
-    justify-content:center;
+//     justify-content:center;
 
-    gap:20px;
+//     gap:20px;
+
+// }
+
+// button{
+
+//     padding:12px 25px;
+
+//     border:none;
+
+//     border-radius:10px;
+
+//     cursor:pointer;
+
+//     color:white;
+
+//     font-size:16px;
+
+// }
+
+// .reveal{
+
+//     background:#2563eb;
+
+// }
+
+// .reset{
+
+//     background:#16a34a;
+
+// }
+
+// .leave-btn {
+
+//     background: #dc2626;
+
+// }
+
+// .leave-btn:hover {
+
+//     background: #b91c1c;
+
+// }
+
+.toolbar {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
 
 }
 
-button{
+button {
 
-    padding:12px 25px;
+    min-width: 150px;
 
-    border:none;
+    height: 48px;
 
-    border-radius:10px;
+    border: 2px solid #d1d5db;
 
-    cursor:pointer;
+    border-radius: 8px;
 
-    color:white;
+    cursor: pointer;
 
-    font-size:16px;
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: all .2s ease;
+
+}
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 16px rgba(0,0,0,.12);
 
 }
 
-.reveal{
+/* Reveal */
 
-    background:#2563eb;
+.reveal {
+
+    border-color: #111827;
+
+}
+
+.reveal:hover {
+
+    background: #111827;
+
+    color: white;
 
 }
 
-.reset{
+/* New Round */
 
-    background:#16a34a;
+.reset {
+
+    border-color: #6b7280;
 
 }
+
+.reset:hover {
+
+    background: #6b7280;
+
+    color: white;
+
+}
+
+/* Leave Room */
 
 .leave-btn {
 
-    background: #dc2626;
+    border-color: #dc2626;
+
+    color: #dc2626;
 
 }
 
 .leave-btn:hover {
 
-    background: #b91c1c;
+    background: #dc2626;
+
+    color: white;
 
 }
