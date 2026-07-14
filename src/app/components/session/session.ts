@@ -69,7 +69,7 @@ voteCounts: { vote: number; count: number }[] = [];
     this.sessionId = roomId;
 
     this.inviteLink =
-      `${window.location.origin}/join/${roomId}`;
+      `${window.location.origin}/planning-poker/join/${roomId}`;
 
     this.roomCreated = true;
 
