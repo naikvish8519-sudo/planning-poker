@@ -3,7 +3,7 @@
     <div class="left-panel">
 
 
-    <h1>🃏 Pointing Poker</h1>    
+    <h1>Pointing Poker</h1>    
 
     <!-- Player Name -->
 
@@ -30,28 +30,7 @@
     </label>
 
 </div>
-    <!-- Start / Join Buttons -->
 
-    <!-- <div class="buttons"
-                *ngIf="!isJoinLink">
-
-        <button
-            class="start"
-            (click)="startSession()">
-
-            🚀 Start Session
-
-        </button>
-
-        <button
-            class="join"
-            (click)="showJoin = !showJoin">
-
-            🤝 Join Session
-
-        </button>
-
-    </div> -->
 
     <div
     class="buttons"
@@ -75,31 +54,7 @@
    
 
 </div>
-
-    <!-- Join Existing Room -->
-
-    <!-- <div
-        *ngIf="showJoin"
-        class="join-box">
-
-        <label>Room ID</label>
-
-        <input
-            type="text"
-            [(ngModel)]="sessionId"
-            placeholder="Enter Room ID">
-
-        <button
-            class="join-btn"
-            (click)="joinSession()">
-
-            Join Room
-
-        </button>
-
-    </div> -->
-
-    <!-- Join Existing Room -->
+    
 
 <div
     *ngIf="showJoin || isJoinLink"
