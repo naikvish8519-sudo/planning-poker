@@ -10,7 +10,7 @@ export class Socket {
 
   constructor() {
 
-    this.socket = io('https://signal-server-production-ef9e.up.railway.app');
+    this.socket = io('https://signal-server-iwtv.onrender.com');
 
   }
 
